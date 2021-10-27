@@ -1,0 +1,26 @@
+<!--pages/card/card.wxml-->
+
+<view class='card-list-wrapper'>
+  <view x-scroll='false' class="card-list" style='transform: translateX( {{cardDistance}}rpx)' bindtouchstart="onTouchStart" bindtouchend="onTouchEnd">
+
+    <view class="nav-item {{classArray[index] ? classArray[index] : ''}}" wx:for="{{cardData}}" wx:for-item="item" data-index="{{index}}">
+      <image class='card-image' src='{{item.image}}' mode='aspectFill'></image>
+      <view class='card-info'>
+        <view class='card-sex'>
+          <view class='card-title'>{{item.username}}</view>
+          <text>　</text>
+          <image src="{{item.gender == 1 ? '../../../image/boy.png' : '../../../image/girl.png'}}" style="width: 50rpx;height: 50rpx;position: relative;"></image>
+        </view>
+        <view class='card-age'>{{item.age}}</view>
+        <view class='card-type text-small}}'>{{item.school}}</view>
+        <view class='card-type text-small}}'>{{item.major}}</view>
+      </view>
+      <button class="card-btn" size="mini" bindtap="getReferer" data-referer="{{item.referer}}" form-type='submit'>觉得不错?　联系推荐人叭~</button>
+    </view>
+  </view>
+</view>
+
+<view class='card-description-wrapper' wx-if="{{cardData.length>0}}">
+  <view class='item-title'>推荐人眼中的Ta</view>
+  <text class='card-desciprtion'>{{currentCard.details}}</text>
+</view>

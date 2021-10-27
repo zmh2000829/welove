@@ -1,0 +1,36 @@
+@import '../../common/common.wxss';
+.header{
+    position: relative;
+    margin-top: 15rpx;
+    font-size: 34rpx;
+    text-align: center;
+}
+.card{
+    position: relative;
+    margin-top: 25rpx;
+    padding-top: 15rpx;
+    padding-left: 15rpx;
+    display: flex;
+    border-radius:15rpx;
+    box-shadow: 0px 0px 8rpx #888888;
+    height: 150rpx;
+    width: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+    overflow:auto;
+}
+.show_info{
+    position: relative;
+    width: 70%;
+}
+.img_block{
+    position: relative;
+    float: right;
+    width: 180rpx;
+}
+.img{
+    position: relative;
+
+    width: 180rpx;
+    height: 180rpx;
+}

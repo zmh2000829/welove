@@ -1,0 +1,21 @@
+<view class="main">
+    <view class="header">
+        <image src="{{thumb}}" class="thumb"></image>
+        <text class="nickname">{{nickname}}</text>
+        <text wx:if="{{info.admin}}" class="admin">管理员</text>
+    </view>
+    <view class="address-box">
+        <view class="address-manage">
+            <navigator url="/page/component/address/address">完善个人信息</navigator>
+        </view>
+        <view class="address-manage">
+            <navigator url="/page/component/myrecommend/myrecommend">查看我的推荐</navigator>
+        </view>
+        <view wx:if="{{info.admin}}" class="address-manage">
+            <navigator url="/page/component/verify/verify">审核推荐(管理员专属)</navigator>
+        </view>
+    </view>
+    <view class="orders-box">
+
+    </view>
+</view>

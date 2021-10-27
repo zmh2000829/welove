@@ -1,0 +1,13 @@
+<view class="main">
+    <view class="form-box">
+        <form bindsubmit="formSubmit">
+            <input value="{{info.username}}" name="username" placeholder="姓名"/>
+            <radio-group bindchange="radiochange">
+                <radio value='0' checked="{{!info.gender}}" >女</radio>
+                <radio value='1' checked="{{info.gender}}" >男</radio>
+            </radio-group>
+            <input name="contact" value="{{info.contact}}" placeholder="联系方式"/>
+            <button form-type="submit">保存</button>
+        </form>
+    </view>
+</view>

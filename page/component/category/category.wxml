@@ -1,0 +1,68 @@
+<view class="main">
+    <view class="bg"></view>
+    <view class="tag-bg">
+        <image src="../../../image/card1.png" class="tag-img"></image>
+    </view>
+    <view class="tag">
+
+        <image src="../../../image/person.png" class="thumb"></image>
+        <view class="intr">
+            <view class="block">
+                <text class="nickname">推荐人:\t{{name}}\n</text>
+                <text class="admin">{{admin}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="apply">
+        <view class="header">\n</view>
+        <view class="lineHeight" type="text">姓名(必填)
+            <input class='input' placeholder='姓名' bindinput="nameInput"></input>
+        </view>
+        <view class="lineHeight" type="text">年龄(必填)
+            <input class='input' placeholder='年龄' bindinput="ageInput"></input>
+        </view>
+        <view class="choosen">
+            <view class="lineHeight3" type="text">性别(必选)</view>
+            <radio-group bindchange="radiochange" class="radios">
+                <radio value='0'>女</radio>
+                <radio value='1'>男</radio>
+            </radio-group>
+        </view>
+        <view class="lineHeight" type="text">身高
+            <input class='input' placeholder='身高' bindinput="heightInput"></input>
+        </view>
+        <view class="choosen">
+            <view class="lineHeight4" type="text">学校
+                <input class='input' placeholder='必填' bindinput="schoolInput"></input>
+            </view>
+            <view class="lineHeight4" type="text">专业
+                <input class='input' bindinput="majorInput"></input>
+            </view>
+        </view>
+        <view class="lineHeight2">简单介绍一下ta
+            <textarea class='area'bindblur="bindTextAreaBlur"></textarea>
+        </view>
+
+        <form report-submit='true'>
+            <view class="cu-bar bg-white">
+                <view class="action">ta的照片(不传为默认图片哦)</view>
+                <view class="action">{{imgList.length}}/{{imgMaxNumber}}</view>
+            </view>
+
+            <view class="cu-form-group">
+                <view class="grid col-4 grid-square flex-sub">
+                    <view class="bg-img" wx:for="{{imgList}}" wx:key="index" bindtap="ViewImage" data-url="{{imgList[index]}}">
+                        <image src='{{imgList[index]}}' mode='aspectFill'></image>
+                        <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+                            <text class="cuIcon-close"></text>
+                        </view>
+                    </view>
+                    <view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<imgMaxNumber}}">
+                        <text class="cuIcon-cameraadd"></text>
+                    </view>
+                </view>
+          </view>
+        </form>
+        <button class="btn" size="mini" bindtap="submit" form-type='submit'>提交推荐</button>
+    </view>
+</view>

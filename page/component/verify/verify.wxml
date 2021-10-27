@@ -1,0 +1,20 @@
+<view class="main">
+    <view class="header">
+        <text wx:if="{{isEmpty == 2}}">查询中...</text>
+        <text wx:if="{{isEmpty == 1}}">目前暂无您可以参与的审核</text>
+    </view>
+    <view class="card" wx:for="{{recommends}}" wx:for-item="item" wx:key="index">
+        <view class="show_info">
+            <view>{{item.username}}\t\t{{item.gender}}\t\t{{item.height}}</view>
+            <view>{{item.school}}\t{{item.major}}</view>
+            <view>{{item.details}}</view>
+            <view>推荐人:\tNo.{{item.referer}}</view>
+        </view>
+        <view class="btn_block">
+            <view class="butt">
+                <button class="btn" size="mini" bindtap="submitAC" data-pid="{{item.pid}}" data-uid="{{item.referer}}">通过</button>
+                <button class="btn" size="mini" bindtap="submitDY" data-pid="{{item.pid}}" data-uid="{{item.referer}}">拒绝</button>
+            </view>
+        </view>
+    </view>
+</view>

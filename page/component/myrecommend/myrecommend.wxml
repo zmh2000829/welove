@@ -1,0 +1,19 @@
+<view class="main">
+    <view class="header">
+        <text wx:if="{{isEmpty == 2}}">查询中...</text>
+        <text wx:if="{{isEmpty == 1}}">目前您还没有推荐</text>
+    </view>
+    <view class="card" wx:for="{{recommends}}" wx:for-item="item" wx:key="index">
+        <view class="show_info">
+            <text>{{item.username}}\t</text>
+            <text wx:if="{{item.gender == 0}}">女\t</text>
+            <text wx:else>男\t</text>
+            <text>{{item.height}}</text>
+            <view>{{item.school}}\t{{item.major}}</view>
+            <view>{{item.details}}</view>
+        </view>
+        <view class="img_block">
+            <image src="{{item.img}}" class="img"></image>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,67 @@
+<!--start.wxml-->
+<view class="container">
+  <view class="remind-box" wx:if="{{remind}}">
+    <image class="remind-img" src="/image/more/loading.gif"></image>
+  </view>
+  <block wx:else>
+    <image class="title" src="/image/more/title8.png"></image>
+    <view class="content">
+      <view class="hd" style="transform:rotateZ({{angle}}deg);">
+        <image class="logo" src="{{userInfo.avatarUrl}}"></image>
+        <image class="wave" src="/image/more/wave.png" mode="aspectFill"></image>
+        <image class="wave wave-bg" src="/image/more/wave.png" mode="aspectFill"></image>
+      </view>
+      <view class="bd">
+        <view wx:if="{{login}}">
+          <view class="view-contain-ti">
+            <text class="text-ti">昵称</text>
+            <input class="input1" bindinput="listenernameInput"></input>
+          </view>
+
+          <view class="view-contain-ti">
+            <text class="text-ti">密码</text>
+            <input class="input1" type="password" bindinput="listenerpasswordInput"></input>
+          </view>
+
+          <view class="tip" bindtap='toRegister'>没有账号？点击这里注册～</view>
+
+          <view class="login-btn" bindtap='tosecondPage'>
+            <text >登陆</text>
+          </view>
+        </view>
+        <view wx:else >
+          <view class="view-contain-ti">
+            <text class="text-ti">昵称</text>
+            <input class="input1" bindinput="listenernicknameInput"></input>
+          </view>
+
+          <view class="view-contain-ti">
+            <text class="text-ti">密码</text>
+            <input class="input1" bindinput="listenerpasswdInput"></input>
+          </view>
+
+          <view class="view-contain-ti">
+            <text class="text-ti">联系方式(建议写手机~</text>
+            <input class="input1" bindinput="listenercontactInput"></input>
+          </view>
+
+          <radio-group class="chose" bindchange="radioChange">
+            <label style="display:block;margin:10px" >
+              <radio value="1" checked="true" />
+              <text style="color: #0A9EF4">Boy</text>
+            </label>
+            <label style="display:block;margin:10px" >
+              <radio value="0" checked="false" />
+              <text style="color: #EC48A7">Girl</text>
+            </label>
+          </radio-group>
+          <view class="tip2" bindtap='toLogin'>已有账号？点击这里登陆～</view>
+          <view class="register-btn" bindtap='doRegister'>
+            <text>注册</text>
+          </view>
+        </view>
+        <text class="copyright">@君潇琼 </text>
+      </view>
+    </view>
+  </block>
+</view>
