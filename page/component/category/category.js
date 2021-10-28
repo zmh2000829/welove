@@ -161,9 +161,9 @@ Page({
                     title: '上传成功，等待审核',
                     icon: 'success'
                 })
-                if (getCurrentPages().length != 0) {
-                   getCurrentPages()[getCurrentPages().length - 1].onLoad()
-                }
+                wx.redirectTo({
+                  url: '../category/category'
+                })
             },
             fail (res){
                 console.log(res)

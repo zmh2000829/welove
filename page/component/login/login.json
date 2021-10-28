@@ -1,4 +1,6 @@
 {
-  "navigationBarTitleText": "内测登录",
-  "usingComponents": {}
+  "navigationBarTitleText": "",
+  "usingComponents": {
+    "loading": "../loading/loading"
+  }
 }

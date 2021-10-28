@@ -40,7 +40,7 @@
     "minifyWXSS": true
   },
   "compileType": "miniprogram",
-  "libVersion": "1.9.98",
+  "libVersion": "2.20.0",
   "appid": "wx6ee84dc6637565ad",
   "projectname": "wx_love",
   "isGameTourist": false,

@@ -10,6 +10,7 @@ Page({
     currentCard: {},
     cardDistance: 0,
     classArray: ['active', 'next'],
+    loading: true
   },
   onLoad: function (options) {
     this.getRecommends();
@@ -55,9 +56,15 @@ Page({
             title: '目前还未有人被推荐呢~',
           })
         }
+        that.setData({
+          loading: false
+        });
       },
       fail: res => { 
-        console.log('加载失败', res)
+        console.log('加载失败', res);
+        that.setData({
+          loading: false
+        });
       }
     })
   },

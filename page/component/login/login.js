@@ -5,7 +5,7 @@ Page({
     token: '',
     remind: '加载中',
     angle: 0,
-    userInfo: {},
+    loading: false,
     login: true,
     name: '',
     nickname: '',
@@ -13,40 +13,17 @@ Page({
     passwd: '',
     password: ''
   },
-  // onShareAppMessage: function (res) {
-  //   if (res.from === 'button') {}
-  //   return {
-  //     path: 'pages/index/index'
-  //   }
-  // },
-  goToIndex: function() {
-    wx.switchTab({
-      url: '/pages/index/index',
-    });
+  onShareAppMessage: function (res) {
+    if (res.from === 'button') {}
+    return {
+      path: 'pages/component/login/login'
+    }
   },
   onLoad: function() {
-    var that = this
-    wx.setNavigationBarTitle({
-      title: wx.getStorageSync('mallName')
-    })
+
   },
   onShow: function() {
-    let that = this
-    let userInfo = wx.getStorageSync('userInfo')
-    if (!userInfo) {
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-          })
-        }
-      })
-    } else {
-      that.setData({
-        userInfo: userInfo
-      })
-    }
+
   },
   onReady: function() {
     var that = this;
@@ -55,19 +32,19 @@ Page({
         remind: ''
       });
     }, 1000);
-    wx.onAccelerometerChange(function(res) {
-      var angle = -(res.x * 30).toFixed(1);
-      if (angle > 14) {
-        angle = 14;
-      } else if (angle < -14) {
-        angle = -14;
-      }
-      if (that.data.angle !== angle) {
-        that.setData({
-          angle: angle
-        });
-      }
-    });
+    // wx.onAccelerometerChange(function(res) {
+    //   var angle = -(res.x * 30).toFixed(1);
+    //   if (angle > 14) {
+    //     angle = 14;
+    //   } else if (angle < -14) {
+    //     angle = -14;
+    //   }
+    //   if (that.data.angle !== angle) {
+    //     that.setData({
+    //       angle: angle
+    //     });
+    //   }
+    // });
   },
   toRegister: function(){
     this.setData({
@@ -98,7 +75,10 @@ Page({
     this.data.contact = e.detail.value;
   },
   doRegister: function(){
-
+    var that = this;
+    this.setData({
+      loading: true
+    });
     wx.request({
       url: 'https://wx.link-studio.cn:8889/register',
       // url: 'http://localhost:5001/register',
@@ -114,13 +94,22 @@ Page({
         contact: JSON.stringify(this.data.contact)
       },
       success: function(res) {
+        that.setData({
+          loading: false
+        });
         wx.showToast({
           title: '注册成功',
           icon: 'none',
           duration: 2000
         });
+        wx.redirectTo({
+          url: '../login/login'
+        })
       },
       fail: function(res) {
+        that.setData({
+          loading: false
+        });
         wx.showToast({
           title: '注册失败',
           icon: 'none',
@@ -130,8 +119,10 @@ Page({
     })
   },
   tosecondPage: function(e){
-    // console.log('token: ', this.data.token);
-    // app.globalData.token = this.data.token;
+    this.setData({
+      loading: true
+    });
+    var that = this;
     wx.request({
       // url: 'http://localhost:5001/login',
       url: 'https://wx.link-studio.cn:8889/login',
@@ -145,8 +136,11 @@ Page({
         passwd: JSON.stringify(this.data.password)
       },
       success: function(res) {
-        var mes = res.data
-        console.log(mes)
+        that.setData({
+          loading: false
+        });
+        var mes = res.data;
+        console.log(mes);
         if(mes['uid'] !== undefined){
           app.globalData.uid = mes['uid'];
           wx.showToast({
@@ -165,14 +159,27 @@ Page({
             url: '../card/card'
           })
         }else{
+          that.setData({
+            loading: false
+          });
           wx.showToast({
-            title: 'invalid token',
+            title: '昵称或密码错误',
             icon: 'none',
             duration: 2000
           });
         }
+      },
+      fail: function(res) {
+        that.setData({
+          loading: false
+        });
+        console.log(res)
+        wx.showToast({
+          title: '登陆失败',
+          icon: 'none',
+          duration: 2000
+        });
       }
     })
-    
   }
 })

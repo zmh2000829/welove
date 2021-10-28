@@ -3,6 +3,7 @@
         <text wx:if="{{isEmpty == 2}}">查询中...</text>
         <text wx:if="{{isEmpty == 1}}">目前您还没有推荐</text>
     </view>
+    <loading wx-if="{{loading}}" />
     <view class="card" wx:for="{{recommends}}" wx:for-item="item" wx:key="index">
         <view class="show_info">
             <text>{{item.username}}\t</text>

@@ -8,7 +8,8 @@
     "page/component/address/address",
     "page/component/verify/verify",
     "page/component/myrecommend/myrecommend",
-    "page/component/search/search"
+    "page/component/search/search",
+    "page/component/loading/loading"
   ],
   "window": {
     "navigationBarTextStyle": "white",
@@ -44,7 +45,7 @@
     ]
   },
   "networkTimeout": {
-    "request": 10000,
+    "request": 60000,
     "connectSocket": 10000,
     "uploadFile": 10000,
     "downloadFile": 10000

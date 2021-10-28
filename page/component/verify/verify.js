@@ -3,7 +3,8 @@ const app = getApp();
 Page({
   data: {
     recommends: [],
-    isEmpty: 2
+    isEmpty: 2,
+    loading: true
   },
   onShow() {
 
@@ -29,11 +30,13 @@ Page({
         if(res.data['data'].length > 0){
           that.setData({
             recommends: res.data['data'],
-            isEmpty: 0
+            isEmpty: 0,
+            loading: false
           })
         }else{
           that.setData({
-            isEmpty: 1
+            isEmpty: 1,
+            loading: false
           })
         }
       }
