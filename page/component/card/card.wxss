@@ -146,3 +146,14 @@
   /* 设置 display 为 -webkit-box 或者 -webkit-inline-box 时为隐藏状态 */
   display: -webkit-inline-box;
 }
+
+.copyright {
+  font-size: 28rpx;
+  color: #999;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 30rpx;
+  text-align: center;
+}

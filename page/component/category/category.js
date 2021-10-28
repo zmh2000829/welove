@@ -161,8 +161,8 @@ Page({
                     title: '上传成功，等待审核',
                     icon: 'success'
                 })
-                wx.redirectTo({
-                  url: '../category/category'
+                wx.reLaunch({
+                  url: '../card/card'
                 })
             },
             fail (res){

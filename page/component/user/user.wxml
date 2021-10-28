@@ -15,7 +15,8 @@
             <navigator url="/page/component/verify/verify">审核推荐(管理员专属)</navigator>
         </view>
     </view>
-    <view class="orders-box">
 
+    <view>
+      <text class="copyright">©2021 君潇琼 ，All rights reserved. </text>
     </view>
 </view>

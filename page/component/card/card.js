@@ -16,7 +16,9 @@ Page({
     this.getRecommends();
   },
   onPullDownRefresh: function () {
-    this.getRecommends()
+    wx.reLaunch({
+      url: '../card/card'
+    })
   },
   onTouchStart(e) {
     console.log(e)

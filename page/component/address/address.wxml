@@ -1,7 +1,7 @@
 <view class="main">
     <view class="form-box">
         <form bindsubmit="formSubmit">
-            <input value="{{info.username}}" name="username" placeholder="姓名"/>
+            <input value="{{info.username}}" name="username" placeholder="真实姓名"/>
             <radio-group bindchange="radiochange">
                 <radio value='0' checked="{{!info.gender}}" >女</radio>
                 <radio value='1' checked="{{info.gender}}" >男</radio>

@@ -1,5 +1,9 @@
 @import '../../common/common.wxss';
 
+radio {
+  transform:scale(0.85);
+}
+
 .form-box{
     padding-left: 30rpx;
 }

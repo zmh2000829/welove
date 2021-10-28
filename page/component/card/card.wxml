@@ -25,3 +25,7 @@
   <view class='item-title'>推荐人眼中的Ta</view>
   <text class='card-desciprtion'>{{currentCard.details}}</text>
 </view>
+
+<view>
+  <text class="copyright">©2021 君潇琼 ，All rights reserved. </text>
+</view>
