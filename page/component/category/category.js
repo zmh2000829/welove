@@ -5,7 +5,9 @@ Page({
         imgMaxNumber: 1,
         name: "",
         admin: "user",
-        uid: ''
+        uid: '',
+        tagShow: false,
+        tagList: []
     },
     onLoad(){
         var self = this;
@@ -40,6 +42,19 @@ Page({
     },
     bindTextAreaBlur: function(e){
         this.data.presentee['details'] = e.detail.value
+    },
+    test: function(e) {
+        this.setData({
+            tagShow: e.detail.tagShow,
+            tagList: JSON.parse(e.detail.tagList)
+        })
+        console.log(this.data.tagList)
+        console.log(this.data.tagShow)
+    },
+    changeTag() {
+        this.setData({
+            tagShow: true,
+        })
     },
     ChooseImage() {
         wx.chooseImage({

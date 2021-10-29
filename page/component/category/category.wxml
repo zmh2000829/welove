@@ -1,10 +1,10 @@
 <view class="main">
+    <tags wx-if="{{tagShow}}" tagShow="{{tagShow}}" tagList="{{tagList}}" bind:childFun="test"/>
     <view class="bg"></view>
     <view class="tag-bg">
         <image src="../../../image/card1.png" class="tag-img"></image>
     </view>
     <view class="tag">
-
         <image src="../../../image/person.png" class="thumb"></image>
         <view class="intr">
             <view class="block">
@@ -40,12 +40,20 @@
             </view>
         </view>
         <view class="lineHeight2">简单介绍一下ta
-            <textarea class='area'bindblur="bindTextAreaBlur"></textarea>
+            <textarea class='area' bindblur="bindTextAreaBlur"></textarea>
         </view>
-
+        <view class="tagLabel" >
+            <view>选择ta的性格标签</view>
+            <view class="tagBtn" wx-if="{{tagList.length === 0}}" bindtap="changeTag">点击选择</view>
+            <block wx-if="{{tagList.length > 0}}" wx:for="{{tagList}}"  wx:key="index">
+                <view class="lable" data-id='{{item.id}}' data-index="{{index}}">
+                    <view>{{item.title}}</view>    
+                </view>
+            </block>
+          </view>
         <form report-submit='true'>
             <view class="cu-bar bg-white">
-                <view class="action">ta的照片(不传为默认图片哦)</view>
+                <view class="action fz24">ta的照片(不传为默认图片哦)</view>
                 <view class="action">{{imgList.length}}/{{imgMaxNumber}}</view>
             </view>
 

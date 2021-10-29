@@ -1,5 +1,8 @@
 {
   "navigationBarTitleText": "我要推荐",
   "backgroundColor": "#eeeeee",
-  "enablePullDownRefresh": false
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "tags": "../imageLabel/imageLabel"
+  }
 }

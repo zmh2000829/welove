@@ -61,7 +61,15 @@
       "list": []
     },
     "miniprogram": {
-      "list": []
+      "list": [
+        {
+          "id": -1,
+          "name": "page/component/imageLabel/imageLabel",
+          "pathName": "page/component/imageLabel/imageLabel",
+          "query": "",
+          "scene": null
+        }
+      ]
     }
   }
 }

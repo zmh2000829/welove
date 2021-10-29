@@ -1174,7 +1174,7 @@ button.icon.lg {
 	display: flex;
 	position: relative;
 	align-items: center;
-	min-height: 100rpx;
+	min-height: 60rpx;
 	justify-content: space-between;
 }
 
@@ -1243,7 +1243,7 @@ button.icon.lg {
 
 .cu-bar .action:first-child {
 	margin-left: 30rpx;
-	font-size: 30rpx;
+	font-size: 24rpx;
 }
 
 .cu-bar .action text.text-cut {
@@ -1621,10 +1621,6 @@ button.icon.lg {
 
 .nav {
 	white-space: nowrap;
-}
-
-::-webkit-scrollbar {
-	display: none;
 }
 
 .nav .cu-item {
