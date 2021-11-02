@@ -3,6 +3,21 @@ page {
   background-color: #fbf9fe;
   height: 100%;
 }
+radio {
+    transform:scale(0.70);
+}
+radio .wx-radio-input{
+    border-color: #69C4AA;
+}
+radio .wx-radio-input.wx-radio-input-checked {
+    background: white !important;
+    border: 1rpx solid #69C4AA !important;
+}
+radio .wx-radio-input.wx-radio-input-checked::before {
+    background: #69C4AA !important;
+    color: #69C4AA;
+    border-radius: 50%;
+}
 .container {
   display: flex;
   flex-direction: column;

@@ -1,6 +1,5 @@
 @import '../../common/common.wxss';
-@import "../../../colorui/main.wxss";
-@import "../../../colorui/icon.wxss";
+@import "../../../zmhui/main.wxss";
 page .main{
     height: 100%;
 }
@@ -76,7 +75,7 @@ radio {
     padding-left: 15rpx;
     position: absolute;
     top: 23%;
-    background-color: white;
+    background-color: #FdFdFd;
     left: 50%;
     transform: translateX(-50%);
     width: 85%;
@@ -92,12 +91,48 @@ radio {
     font-size: 34rpx;
     margin-top: 10rpx;
 }
+.header-title {
+    margin-left: 15rpx;
+}
+.header-line {
+    margin-top: 5rpx;
+    position: relative;
+    width: 90%;
+    left: 5%;
+    height: 8rpx;
+    background-color:#E8E8E8;
+}
+.star {
+    font-size: 32rpx;
+    color: red;
+    margin-left: 10rpx;
+}
+.star-none {
+    font-size: 32rpx;
+    color: #fdfdfd;
+    margin-left: 10rpx;
+}
 .input{
-    margin-left: 7%;
+    margin-left: 20rpx;
     display: inline-block;
     line-height: 80rpx;
     vertical-align: middle;
-    width: 60%;
+    width: 70%;
+    border: 1rpx solid #D5D5D5;
+    background-color: white;
+    border-radius: 10rpx;
+    padding-left: 10rpx;
+}
+.input2{
+    margin-left: 20rpx;
+    display: inline-block;
+    line-height: 80rpx;
+    vertical-align: middle;
+    width: 45%;
+    border: 1rpx solid #D5D5D5;
+    background-color: white;
+    border-radius: 10rpx;
+    padding-left: 10rpx;
 }
 .radios{
     display: flex;
@@ -107,7 +142,6 @@ radio {
     width: 90%;
     line-height: 55rpx;
     margin-left: 5%;
-    border-bottom: 1px solid #ccc;
 }
 .lineHeight2{
     width: 90%;
@@ -128,7 +162,6 @@ radio {
     width: 150rpx;
     height: 50rpx;
     line-height: 48rpx;
-    background-color: #f5f5f5;
     margin-right: 20rpx;
     margin-bottom: 0rpx;
     background-color: #f5f5f5;
@@ -138,12 +171,19 @@ radio {
 }
 .tagBtn {
     line-height: 55rpx;
+    font-size: 22rpx;
     position: relative;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 25rpx;
-    background-color: #666;
-    width: 157rpx;
-    height: 50rpx;
+    background-color: #F2F2F2;
+    border: 1rpx solid #9DC4B9 !important;
+    width: 150rpx;
+    height: 45rpx;
+}
+.tagBtn:hover {
+    background-color: #BFC4C2;
 }
 .lineHeight3{
     width: 30%;
@@ -157,7 +197,6 @@ radio {
     margin-left: 5%;
     width: 90%;
     display: flex;
-    border-bottom: 1px solid #ccc;
 }
 .fz24 {
   font-size: 24rpx !important;
@@ -167,6 +206,9 @@ radio {
     position: relative;
     width: 100%;
     border: 1px solid #ccc;
+    border-radius: 15rpx;
+    background-color: white;
+    padding-left: 25rpx;
 }
 .btn{
     position: absolute;

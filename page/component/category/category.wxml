@@ -13,38 +13,41 @@
             </view>
         </view>
     </view>
-    <view class="apply">
-        <view class="header">\n</view>
-        <view class="lineHeight" type="text">姓名(必填)
-            <input class='input' placeholder='姓名' bindinput="nameInput"></input>
+    <view class="apply">        
+        <view class="header">
+            <view class="header-title">TA的信息</view>
+            <view class="header-line" wx-if="{{!operation}}"></view>
         </view>
-        <view class="lineHeight" type="text">年龄(必填)
-            <input class='input' placeholder='年龄' bindinput="ageInput"></input>
+        <view class="lineHeight" type="text">姓名<text class="star">*</text>
+            <input class='input' bindinput="nameInput"></input>
+        </view>
+        <view class="lineHeight" type="text">年龄<text class="star">*</text>
+            <input class='input' bindinput="ageInput"></input>
         </view>
         <view class="choosen">
-            <view class="lineHeight3" type="text">性别(必选)</view>
+            <view class="lineHeight3" type="text">性别<text class="star">*</text></view>
             <radio-group bindchange="radiochange" class="radios">
                 <radio value='0'>女</radio>
                 <radio value='1'>男</radio>
             </radio-group>
         </view>
-        <view class="lineHeight" type="text">身高
-            <input class='input' placeholder='身高' bindinput="heightInput"></input>
+        <view class="lineHeight" type="text">身高<text class="star-none">*</text>
+            <input class='input' bindinput="heightInput"></input>
         </view>
         <view class="choosen">
-            <view class="lineHeight4" type="text">学校
-                <input class='input' placeholder='必填' bindinput="schoolInput"></input>
+            <view class="lineHeight4" type="text">学校<text class="star">*</text>
+                <input class='input2' bindinput="schoolInput"></input>
             </view>
             <view class="lineHeight4" type="text">专业
-                <input class='input' bindinput="majorInput"></input>
+                <input class='input2' bindinput="majorInput"></input>
             </view>
         </view>
-        <view class="lineHeight2">简单介绍一下ta
+        <view class="lineHeight2">简单介绍一下ta<text class="star">*</text>
             <textarea class='area' bindblur="bindTextAreaBlur"></textarea>
         </view>
         <view class="tagLabel" >
             <view>选择ta的性格标签</view>
-            <view class="tagBtn" wx-if="{{tagList.length === 0}}" bindtap="changeTag">点击选择</view>
+            <view class="tagBtn" wx-if="{{tagList.length === 0}}" bindtap="changeTag"><text>点击选择</text></view>
             <block wx-if="{{tagList.length > 0}}" wx:for="{{tagList}}"  wx:key="index">
                 <view class="lable" data-id='{{item.id}}' data-index="{{index}}">
                     <view>{{item.title}}</view>    
