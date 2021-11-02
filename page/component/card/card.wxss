@@ -81,8 +81,7 @@
 }
 
 .card-age {
-  font-size: 32rpx;
-  margin-bottom: 10rpx;
+  font-size: 36rpx;
   line-height: 40rpx;
   font-weight: bold;
 }
@@ -97,13 +96,37 @@
 .card-type {
   font-size: 32rpx;
   margin-top: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: rgba(52, 33, 88, 0.7);
 }
-
-.card-type.text-small {
+.text-middle {
+  font-size: 32rpx;
+}
+.text-small {
   font-size: 28rpx;
 }
-
+.tagFlex{
+  position: relative;
+  display: flex;
+  margin-top: 20rpx;
+}
+.lable{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150rpx;
+    height: 50rpx;
+    line-height: 48rpx;
+    background-color: #f5f5f5;
+    margin-right: 20rpx;
+    margin-bottom: 0rpx;
+    color: #999;
+    font-size: 24rpx;
+    border-radius: 25rpx;
+}
 .card-detail {
   box-sizing: border-box;
   color: #342158;

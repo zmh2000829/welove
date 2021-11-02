@@ -61,7 +61,9 @@ Page({
     this.data.info['gender'] = Number(e.detail.value)
   },
   updateData:function(udata){
+    console.log(udata)
     wx.request({
+      // url: 'http://localhost:5001/updateInfo',
       url: 'https://wx.link-studio.cn:8889/updateInfo',
       method: "POST",
       header: {
@@ -69,11 +71,13 @@ Page({
         'chartset': 'utf-8'
       },
       data:{
-        info: JSON.stringify(udata),
-        token: JSON.stringify(app.globalData.token)
+        info: udata
       },
       success: function(res) {
         console.log(res)
+        wx.reLaunch({
+          url: '../user/user'
+        })
       }
     })
   },
@@ -87,15 +91,14 @@ Page({
         key: 'info',
         newData: value,
         success(res){
-          wx.navigateBack();
+          console.log(res)
         },
         fail(res) {
           console.log(res)
         },
         complete(res) {
           console.log(res)
-          that.updateData(res.data)
-          wx.navigateBack();
+          that.updateData(JSON.stringify(res.data))
         }
       })
     }else{

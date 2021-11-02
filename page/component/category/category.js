@@ -3,7 +3,7 @@ Page({
         presentee: {},
         imgList: [],
         imgMaxNumber: 1,
-        name: "",
+        name: null,
         admin: "user",
         uid: '',
         tagShow: false,
@@ -19,8 +19,24 @@ Page({
                     admin : res.data['admin'] === 1 ? '管理员' : '普通用户',
                     uid: res.data['uid']
                 })
+                self.checkName()
             }
         })
+    },
+    checkName: function() {
+        if(this.data.name == null){
+            wx.showModal({
+                title:'提示',
+                content:'请先完善个人信息',
+                showCancel:false,
+                duration: 2000
+            })
+            setTimeout(() => {
+                wx.switchTab({
+                    url: '../user/user'
+                })
+            },1500)   
+        }
     },
     nameInput: function(e){
         this.data.presentee['username'] = e.detail.value;
@@ -160,6 +176,7 @@ Page({
         if(param['pic'] == undefined){
             param['pic'] = 'https:link-studio.cn/welove/images/head.jpg'
         }
+        param['tags'] = JSON.stringify(this.data.tagList)
         wx.request({
             url: 'https://wx.link-studio.cn:8889/upload_presentee',
             method: "POST",
@@ -205,7 +222,14 @@ Page({
           isScroll: false
         })
       },1)
-        
+    },
+    clear: function(){
+        this.setData({
+            presentee: {},
+            imgList: [],
+            imgMaxNumber: 1,
+            tagShow: false,
+            tagList: []
+        })
     }
-    
 })

@@ -117,11 +117,14 @@ radio {
 .tagLabel {
     margin-left: 5%;
     line-height: 69rpx;
+    position: relative;  
+}
+.tagLabel .tagFlex{
     position: relative;
-    box-sizing: border-box;
+    display: flex;
 }
 .tagLabel .lable{
-    float: left;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -131,17 +134,17 @@ radio {
     background-color: #f5f5f5;
     margin-right: 20rpx;
     margin-bottom: 0rpx;
-    background-color: #f5f5f5;
     color: #999;
     font-size: 24rpx;
     border-radius: 25rpx;
 }
 .tagBtn {
+    font-size: 22rpx;
     line-height: 55rpx;
     position: relative;
     text-align: center;
     border-radius: 25rpx;
-    background-color: #666;
+    background-color: #d7d7d7;
     width: 157rpx;
     height: 50rpx;
 }
@@ -159,18 +162,25 @@ radio {
     display: flex;
     border-bottom: 1px solid #ccc;
 }
-.fz24 {
-  font-size: 24rpx !important;
-}
 .area{
     height: 100rpx;
     position: relative;
     width: 100%;
     border: 1px solid #ccc;
 }
-.btn{
+.btns {
     position: absolute;
+    width: 90%;
     top: 90%;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 5%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+.clear{
+    color: grey;
+}
+.clear:hover {
+    color: #69207e; 
+    text-decoration: underline;
 }

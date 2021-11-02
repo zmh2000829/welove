@@ -45,15 +45,18 @@
         <view class="tagLabel" >
             <view>选择ta的性格标签</view>
             <view class="tagBtn" wx-if="{{tagList.length === 0}}" bindtap="changeTag">点击选择</view>
-            <block wx-if="{{tagList.length > 0}}" wx:for="{{tagList}}"  wx:key="index">
-                <view class="lable" data-id='{{item.id}}' data-index="{{index}}">
-                    <view>{{item.title}}</view>    
+            <view class="tagFlex">
+                <view wx-if="{{tagList.length > 0}}" wx:for="{{tagList}}"  wx:key="index">
+                    <view class="lable" data-id='{{item.id}}' data-index="{{index}}">
+                        <view>{{item.title}}</view>    
+                    </view>
                 </view>
-            </block>
-          </view>
+            </view>
+        </view>
+
         <form report-submit='true'>
             <view class="cu-bar bg-white">
-                <view class="action fz24">ta的照片(不传为默认图片哦)</view>
+                <view class="action">ta的照片(不传为默认图片哦)</view>
                 <view class="action">{{imgList.length}}/{{imgMaxNumber}}</view>
             </view>
 
@@ -71,6 +74,9 @@
                 </view>
           </view>
         </form>
-        <button class="btn" size="mini" bindtap="submit" form-type='submit'>提交推荐</button>
+        <view class="btns">
+            <button size="mini" bindtap="submit" form-type='submit'>提交推荐</button>
+            <text class="clear" bindtap="clear" >清空</text>
+        </view>
     </view>
 </view>

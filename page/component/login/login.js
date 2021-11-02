@@ -143,6 +143,8 @@ Page({
         console.log(mes);
         if(mes['uid'] !== undefined){
           app.globalData.uid = mes['uid'];
+          app.globalData.nickname = mes['nickname'];
+          app.globalData.passwd = mes['passwd'];
           wx.showToast({
             title: '登录成功',
             icon: 'none',

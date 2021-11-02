@@ -48,6 +48,10 @@ Page({
       success: function(res) {
         console.log(res)
         if(res.data['data'].length > 0){
+          for(var i in res.data['data']){
+            let temp = res.data['data'][i]['tags']
+            res.data['data'][i]['tags'] = JSON.parse(temp)
+          }
           that.setData({
             cardData: res.data['data'],
             currentCard: res.data['data'][0]

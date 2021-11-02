@@ -1,3 +1,4 @@
+# -- coding: utf-8 --**
 from flask import Flask, request, jsonify,make_response
 import json, random, string
 import pymysql
@@ -22,11 +23,12 @@ def login():
 	passwd = str(json.loads(request.values.get("passwd")))
 	conn = pymysql.connect(host='127.0.0.1', user=user, password=password, database=database, charset=charset)
 	cur = conn.cursor()
-	sql = "select uid,username,gender,num,admin,contact from user where nickname=%s and passwd=%s"
+	sql = "select uid,username,nickname,passwd,gender,num,admin,contact from user where nickname=%s and passwd=%s"
 	a = cur.execute(sql, (nickname, passwd))
 	if(a == 1):
 		temp = cur.fetchall()[0]
-		res = {'uid': temp[0], 'username' : temp[1], 'gender': temp[4], 'contact': temp[5], 'num': temp[3], 'admin': temp[4]}
+		print(temp)
+		res = {'uid': temp[0], 'username' : temp[1], 'nickname': temp[2], 'passwd': temp[3], 'gender': temp[4], 'num': temp[5], 'admin': temp[6], 'contact': temp[7]}
 	else:
 		res = {}
 	conn.commit()
@@ -52,12 +54,12 @@ def register():
 
 @app.route('/updateInfo',methods=['POST'])
 def updateInfo():
-	info = json.loads(request.values.get("info"))
-	token = str(json.loads(request.values.get("token")))
+	test = str(request.values.get("info"))
+	info = json.loads(test)
 	conn = pymysql.connect(host='127.0.0.1', user=user, password=password, database=database, charset=charset)
 	cur = conn.cursor()
-	sql = "update user set username = %s, gender = %s, contact = %s where token=%s"
-	cur.execute(sql, (info['username'], info['gender'], info['contact'], token))
+	sql = "update user set username = %s, gender = %s, contact = %s where nickname=%s and passwd=%s"
+	cur.execute(sql, (info['username'], info['gender'], info['contact'], info['nickname'], info['passwd']))
 	conn.commit()
 	cur.close()
 	conn.close()
@@ -68,8 +70,8 @@ def upload_presentee():
 	info = json.loads(request.values.get("pinfo"))
 	conn = pymysql.connect(host='127.0.0.1', user=user, password=password, database=database, charset=charset)
 	cur = conn.cursor()
-	sql = "insert into presentee(username,gender,height,age,school,major,details,pic,status,referer) values(%s,%s,%s,%s,%s,%s,%s,%s,0,%s)"
-	cur.execute(sql, (info['username'], info['gender'], info['height'], info['age'], info['school'], info['major'], info['details'], info['pic'], info['referer']))
+	sql = "insert into presentee(username,gender,height,age,school,major,details,tags,pic,status,referer) values(%s,%s,%s,%s,%s,%s,%s,%s,%s,0,%s)"
+	cur.execute(sql, (info['username'], info['gender'], info['height'], info['age'], info['school'], info['major'], info['details'], info['tags'], info['pic'], info['referer']))
 	conn.commit()
 	cur.close()
 	conn.close()
@@ -78,12 +80,11 @@ def upload_presentee():
 @app.route('/upload',methods=['POST'])
 def upload():
 	img = request.files.get('file')
-	print(img)
-	path = "C:\\Users\\Lenovo\\Desktop\\wx\\img"
+	path = "C:\\xampp\\htdocs\\welove\\images\\"
 	img_name = img.filename
 	file_path = path + img_name
 	img.save(file_path)
-	return file_path
+	return 'https://link-studio.cn/welove/images/' + img_name
 
 @app.route('/getrecommends',methods=['POST'])
 def getrecommends():
@@ -146,12 +147,13 @@ def list2dict(retlist):
 		temp['school'] = item[5]
 		temp['major'] = item[6]
 		temp['details'] = item[7]
-		temp['image'] = item[8]
-		temp['status'] = item[9]
-		temp['referer'] = item[10]
-		if item[9] == 0:
+		temp['tags'] = item[8]
+		temp['image'] = item[9]
+		temp['status'] = item[10]
+		temp['referer'] = item[11]
+		if item[10] == 0:
 			temp['img'] = '../../../image/pending.png'
-		elif item[9] == 2:
+		elif item[10] == 2:
 			temp['img'] = '../../../image/fail.png' 
 		else:
 			temp['img'] = '../../../image/success.png' 

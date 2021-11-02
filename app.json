@@ -1,11 +1,11 @@
 {
   "pages": [
-    "page/component/category/category",
     "page/component/login/login",
     "page/component/card/card",
     "page/component/index",
     "page/component/user/user",
     "page/component/address/address",
+    "page/component/category/category",
     "page/component/verify/verify",
     "page/component/myrecommend/myrecommend",
     "page/component/search/search",

@@ -11,10 +11,10 @@
           来给ta添加个标签叭～
         </view>
         <view class="imageLabel_tit2 c999 fz24 }}" wx:if="{{!isWarning}}" >
-          最多添加4个标签，已添加{{list.length}}个
+          最多添加3个标签，已添加{{list.length}}个
         </view >
         <view class="imageLabel_tit2 c999 fz24 warning}}" wx:else >
-        最多添加4个标签，不能继续添加了
+        最多添加3个标签，不能继续添加了
         </view >
       </view>
       <!-- 选中标签 -->

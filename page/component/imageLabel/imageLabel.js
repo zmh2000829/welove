@@ -53,7 +53,7 @@ Component({
         this.data.list
       ]
       // 判断长度
-      if (list.length > 3) {
+      if (list.length > 2) {
         this.setData({
           isWarning: true
         })
@@ -79,7 +79,7 @@ Component({
         e.currentTarget.dataset.id,
         this.data.list
       ]
-      if (list.length < 5) {
+      if (list.length < 4) {
         this.setData({
           isWarning: false
         })
