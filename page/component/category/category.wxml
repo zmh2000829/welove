@@ -48,9 +48,11 @@
         <view class="tagLabel" >
             <view>选择ta的性格标签</view>
             <view class="tagBtn" wx-if="{{tagList.length === 0}}" bindtap="changeTag"><text>点击选择</text></view>
-            <block wx-if="{{tagList.length > 0}}" wx:for="{{tagList}}"  wx:key="index">
-                <view class="lable" data-id='{{item.id}}' data-index="{{index}}">
-                    <view>{{item.title}}</view>    
+            <view class="tagFlex">
+                <view wx-if="{{tagList.length > 0}}" wx:for="{{tagList}}"  wx:key="index">
+                    <view class="lable" data-id='{{item.id}}' data-index="{{index}}">
+                        <view>{{item.title}}</view>    
+                    </view>
                 </view>
             </view>
         </view>

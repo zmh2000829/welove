@@ -32,19 +32,6 @@ Page({
         remind: ''
       });
     }, 1000);
-    // wx.onAccelerometerChange(function(res) {
-    //   var angle = -(res.x * 30).toFixed(1);
-    //   if (angle > 14) {
-    //     angle = 14;
-    //   } else if (angle < -14) {
-    //     angle = -14;
-    //   }
-    //   if (that.data.angle !== angle) {
-    //     that.setData({
-    //       angle: angle
-    //     });
-    //   }
-    // });
   },
   toRegister: function(){
     this.setData({
@@ -145,6 +132,7 @@ Page({
           app.globalData.uid = mes['uid'];
           app.globalData.nickname = mes['nickname'];
           app.globalData.passwd = mes['passwd'];
+          app.globalData.admin = mes['admin'];
           wx.showToast({
             title: '登录成功',
             icon: 'none',

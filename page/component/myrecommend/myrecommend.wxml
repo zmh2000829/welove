@@ -7,8 +7,7 @@
     <view class="card" wx:for="{{recommends}}" wx:for-item="item" wx:key="index">
         <view class="show_info">
             <text>{{item.username}}\t</text>
-            <text wx:if="{{item.gender == 0}}">女\t</text>
-            <text wx:else>男\t</text>
+            <text>{{item.gender_txt}}\t</text>
             <text>{{item.height}}</text>
             <view>{{item.school}}\t{{item.major}}</view>
             <view>{{item.details}}</view>

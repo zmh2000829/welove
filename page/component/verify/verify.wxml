@@ -6,7 +6,7 @@
     <loading wx-if="{{loading}}" />
     <view class="card" wx:for="{{recommends}}" wx:for-item="item" wx:key="index">
         <view class="show_info">
-            <view>{{item.username}}\t\t{{item.gender}}\t\t{{item.height}}</view>
+            <view>{{item.username}}\t\t{{item.gender_txt}}\t\t{{item.height}}</view>
             <view>{{item.school}}\t{{item.major}}</view>
             <view>{{item.details}}</view>
             <view>推荐人:\tNo.{{item.referer}}</view>

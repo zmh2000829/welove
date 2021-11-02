@@ -14,7 +14,7 @@ App({
     username: '',
     gender: '',
     score: 0,
-    admin: 1,
+    admin: 0,
     nickname: '',
     passwd: ''
   }

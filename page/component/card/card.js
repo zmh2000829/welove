@@ -34,6 +34,8 @@ Page({
   },
   getRecommends(){
     var that = this;
+    var flag = app.globalData.admin == 1 ? 3 : 2;
+    console.log(flag)
     wx.request({
       url: 'https://wx.link-studio.cn:8889/getrecommends',
       method: "POST",
@@ -42,7 +44,7 @@ Page({
         'chartset': 'utf-8'
       },
       data:{
-        flag: 2,
+        flag: flag,
         uid: app.globalData.uid
       },
       success: function(res) {
